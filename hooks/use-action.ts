@@ -26,17 +26,19 @@ export const useAction = <TInput, TOutput>  (
                if(!result) {
                 return
                } 
-               if(result.fieldErrors) {
+
                 setFieldErrors(result.fieldErrors)
-               }
+
                if(result.error){
                 setError(result.error)
                 options.onError?.(result.error)
                }
+
                if(result.data) {
                 setData(result.data)
                 options.onSuccess?.(result.data)
                }
+               
             } finally {
                 setIsLoading(false)
                 options.onComplete?.()
