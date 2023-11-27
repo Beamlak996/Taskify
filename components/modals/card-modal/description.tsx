@@ -52,6 +52,9 @@ export const Description = ({data}: DescriptionProps)=> {
             querClient.invalidateQueries({
                 queryKey: ["card", data.id]
             })
+            querClient.invalidateQueries({
+              queryKey: ["card-logs", data.id],
+            });
             toast.success(`Card "${data.title}" updated`)
             disableEditing()
         },

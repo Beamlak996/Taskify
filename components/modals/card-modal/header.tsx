@@ -28,6 +28,9 @@ export const Header = ({data}: HeaderProps)=> {
             querClient.invalidateQueries({
                 queryKey: ["card", data.id]
             })
+            querClient.invalidateQueries({
+              queryKey: ["card-logs", data.id],
+            });
             toast.success(`Renamed to "${data.title}"`)
             setTitle(data.title)
         },
